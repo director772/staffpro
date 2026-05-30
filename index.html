@@ -26,8 +26,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-
-/* SPLASH FIXED */
 .splash{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.5s ease}
 .splash.hide{opacity:0;pointer-events:none}
 .splash-logo{animation:splashPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both}
@@ -41,22 +39,16 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes toastIn{from{transform:translateX(-50%) translateY(20px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-
-/* LOGIN */
 .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at 50% 0%,rgba(240,201,58,0.07) 0%,transparent 60%)}
 .login-box{background:var(--card);border:1px solid var(--border2);border-radius:22px;padding:36px 32px;width:100%;max-width:390px;box-shadow:var(--shadow-lg);animation:fadeUp 0.5s both}
 .login-logo-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:28px}
 .login-logo-text{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--accent);margin-top:12px}
 .login-sub{font-size:11px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.8px}
 .login-err{background:rgba(240,58,110,0.08);border:1px solid rgba(240,58,110,0.25);border-radius:10px;padding:10px 14px;font-size:12px;color:var(--absent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-
-/* LAYOUT */
 .app{display:flex;min-height:100vh}
 .sidebar{width:230px;background:linear-gradient(180deg,var(--surface) 0%,#0f0f18 100%);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;height:100vh;z-index:100}
 .sidebar::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0.3}
 .main{margin-left:230px;flex:1;padding:24px;min-height:100vh}
-
-/* SIDEBAR */
 .logo-wrap{padding:20px 18px 14px;display:flex;align-items:center;gap:11px;border-bottom:1px solid var(--border)}
 .logo-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:var(--accent);line-height:1}
 .logo-tagline{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:3px}
@@ -75,13 +67,9 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .sidebar-bottom{padding:10px 12px;border-top:1px solid var(--border)}
 .logout-btn{padding:9px 14px;background:rgba(240,58,110,0.07);border:1px solid rgba(240,58,110,0.15);border-radius:10px;color:var(--absent);font-size:12px;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600;transition:all 0.18s;font-family:'DM Sans',sans-serif;width:100%}
 .logout-btn:hover{background:rgba(240,58,110,0.14)}
-
-/* PAGE */
 .page-header{margin-bottom:18px}
 .page-title{font-family:'Syne',sans-serif;font-size:21px;font-weight:800;margin-bottom:3px;letter-spacing:-0.3px}
 .page-sub{font-size:12px;color:var(--muted)}
-
-/* STATS */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:18px}
 .stat-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:14px;position:relative;overflow:hidden;transition:transform 0.18s}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0}
@@ -92,8 +80,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .stat-icon{font-size:18px;margin-bottom:7px;opacity:0.8}
 .stat-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;line-height:1;letter-spacing:-0.5px}
 .stat-label{font-size:10px;color:var(--muted);margin-top:5px;font-weight:500}
-
-/* TABLE */
 .table-wrap{overflow-x:auto;border-radius:13px;border:1px solid var(--border);background:var(--card)}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{background:rgba(255,255,255,0.02);padding:10px 12px;text-align:left;font-size:9px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;white-space:nowrap;border-bottom:1px solid var(--border)}
@@ -102,14 +88,10 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 .name-cell{font-weight:600;font-size:13px}
 .sub-text{font-size:10px;color:var(--muted);margin-top:2px}
 .role-badge{display:inline-block;padding:2px 7px;border-radius:20px;font-size:9px;background:rgba(240,201,58,0.1);color:var(--accent);font-weight:700;border:1px solid rgba(240,201,58,0.18)}
-
-/* BADGE */
 .badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:20px;font-size:9px;font-weight:700}
 .badge-opening{background:rgba(160,58,240,0.12);color:var(--purple)}
 .badge-given{background:rgba(240,201,58,0.12);color:var(--halfday)}
 .badge-deducted{background:rgba(58,240,160,0.12);color:var(--present)}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:10px;border:none;cursor:pointer;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;transition:all 0.18s;white-space:nowrap}
 .btn:active{transform:scale(0.96)}
 .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#000;box-shadow:0 2px 12px rgba(240,201,58,0.25)}
@@ -121,16 +103,12 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 .btn-purple{background:rgba(160,58,240,0.09);color:var(--purple);border:1px solid rgba(160,58,240,0.2)}
 .btn-blue{background:rgba(58,160,240,0.09);color:var(--blue);border:1px solid rgba(58,160,240,0.2)}
 .btn-sm{padding:4px 9px;font-size:10px;border-radius:7px}
-
-/* ATTENDANCE */
 .att-btn-group{display:flex;gap:3px}
 .att-btn{padding:4px 10px;border-radius:7px;border:1px solid var(--border2);background:rgba(255,255,255,0.03);color:var(--muted);cursor:pointer;font-size:11px;font-weight:700;transition:all 0.15s;font-family:'DM Sans',sans-serif}
 .att-btn:active{transform:scale(0.94)}
 .att-btn.P{background:rgba(58,240,160,0.15);border-color:rgba(58,240,160,0.35);color:var(--present)}
 .att-btn.A{background:rgba(240,58,110,0.15);border-color:rgba(240,58,110,0.35);color:var(--absent)}
 .att-btn.H{background:rgba(240,201,58,0.15);border-color:rgba(240,201,58,0.35);color:var(--halfday)}
-
-/* FORM */
 .date-bar{display:flex;align-items:center;gap:9px;margin-bottom:18px;flex-wrap:wrap}
 .date-input,.month-input,.year-input{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:8px 12px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;outline:none}
 .date-input:focus,.month-input:focus,.year-input:focus{border-color:var(--accent)}
@@ -140,26 +118,18 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 .form-input:focus,.form-select:focus{border-color:var(--accent)}
 .form-select option{background:var(--surface);color:var(--text)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.78);display:flex;align-items:flex-end;justify-content:center;z-index:500;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .modal{background:var(--card2);border:1px solid var(--border2);border-radius:20px 20px 0 0;width:100%;max-width:520px;padding:22px 18px;max-height:90vh;overflow-y:auto;animation:slideUp 0.28s cubic-bezier(0.34,1.2,0.64,1)}
 .modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 18px;display:block}
 .modal-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:18px}
-
-/* AMOUNTS */
 .amount-positive{color:var(--present);font-weight:700}
 .amount-negative{color:var(--absent);font-weight:700}
 .amount-warning{color:#f0a03a;font-weight:700}
 .net-pay{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--accent2)}
 .outstanding-pill{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;background:rgba(240,58,110,0.12);color:var(--absent)}
-
-/* TOAST */
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:11px 18px;font-size:12px;font-weight:600;z-index:9999;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1);white-space:nowrap}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:11px 18px;font-size:12px;font-weight:600;z-index:9999;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);white-space:nowrap;animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1)}
 .toast.success{border-color:rgba(58,240,160,0.35);color:var(--present)}
 .toast.error{border-color:rgba(240,58,110,0.35);color:var(--absent)}
-
-/* LOADING */
 .loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px;color:var(--muted);gap:14px;font-size:13px}
 .spinner{width:24px;height:24px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.7s linear infinite}
 .empty{text-align:center;padding:40px 16px;color:var(--muted);font-size:13px;line-height:1.6}
@@ -168,10 +138,6 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 .chart-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:18px;margin-top:18px}
 .chart-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:14px;color:var(--text2)}
 .info-card{background:rgba(240,201,58,0.05);border:1px solid rgba(240,201,58,0.12);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px;color:var(--text2);display:flex;align-items:center;gap:8px}
-
-/* ═══════════════════════════════════════
-   MOBILE RESPONSIVE
-═══════════════════════════════════════ */
 @media(max-width:768px){
   .sidebar{width:100%;height:54px;flex-direction:row;position:fixed;top:0;border-right:none;border-bottom:1px solid var(--border);overflow-x:auto;overflow-y:hidden;z-index:200;background:rgba(10,10,15,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   .sidebar::before{top:auto;bottom:0;height:1px}
@@ -231,15 +197,8 @@ tr:hover td{background:rgba(255,255,255,0.02)}
   .modal-handle{display:none}
   .stats-grid{grid-template-columns:repeat(4,1fr)}
 }
-
-/* ANTI ZOOM & APP BEHAVIOR FIX */
-input, select, textarea, button {
-  font-size: 16px !important; 
-  touch-action: manipulation;
-}
-html, body {
-  overscroll-behavior-y: none;
-}
+input, select, textarea, button { font-size: 16px !important; touch-action: manipulation; }
+html, body { overscroll-behavior-y: none; }
 </style>
 </head>
 <body>
@@ -274,7 +233,6 @@ html, body {
 <div id="app"></div>
 
 <script>
-// PREVENT PINCH AND DOUBLE-TAP ZOOM IN JAVASCRIPT
 document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
 document.addEventListener('touchstart', function(e) { if(e.touches.length > 1) e.preventDefault(); }, {passive: false});
 var lastTouchEnd = 0;
@@ -299,13 +257,13 @@ var state={
   deleteConfirm:false,deleteStaffId:'',
   showLedger:false,ledger:[],ledgerLoading:false,ledgerStaffId:'',
   showPayHistory:false,payHistory:[],payHistoryLoading:false,payHistoryStaffId:'',
+  showAttHistory:false,attHistory:[],attHistoryLoading:false,attHistoryStaffId:'', 
   charts:{}
 };
 
 function today(){return new Date().toISOString().slice(0,10);}
 function thisMonth(){return new Date().toISOString().slice(0,7);}
 
-/* API CONNECTION FOR GITHUB */
 var API_URL = "https://script.google.com/macros/s/AKfycbz5AV73mT43qAA0qiT9JFdoyNcBiF_mLlwVaRIITp6iSjDuZIl54Lm5Is_6LPSgklpS/exec";
 
 function gsGet(action, params) {
@@ -341,7 +299,6 @@ function gsPost(body) {
       .catch(function(err) { reject(err); });
   });
 }
-/* END API CONNECTION */
 
 function showToast(msg,type){
   if(state.toastTimer)clearTimeout(state.toastTimer);
@@ -389,6 +346,13 @@ function loadLedger(sid){
 function loadPayHistory(sid){
   state.payHistoryLoading=true;state.showPayHistory=true;state.payHistoryStaffId=sid;render();
   gsGet('getPayments',{staffId:sid}).then(function(r){state.payHistory=r.data||[];state.payHistoryLoading=false;render();}).catch(function(e){state.payHistoryLoading=false;showToast(e.message,'error');render();});
+}
+function loadAttHistory(sid){
+  state.attHistoryLoading=true;state.showAttHistory=true;state.attHistoryStaffId=sid;render();
+  gsGet('getAttendance',{staffId:sid}).then(function(r){
+    state.attHistory=(r.data||[]).sort(function(a,b){return a.date>b.date?-1:1;});
+    state.attHistoryLoading=false;render();
+  }).catch(function(e){state.attHistoryLoading=false;showToast(e.message,'error');render();});
 }
 
 function saveAttendance(){
@@ -559,19 +523,32 @@ function buildYearly(){
 function buildStaff(){
   var am=state.staffShowForm?buildStaffModal('add'):'';
   var em=state.editShowForm?buildStaffModal('edit'):'';
+  var attModal=state.showAttHistory?buildAttHistoryModal():'';
   var dm=state.deleteConfirm?'<div class="modal-overlay"><div class="modal"><span class="modal-handle"></span><div class="modal-title">⚠️ Delete Karo?</div><p style="color:var(--muted);font-size:13px;margin-bottom:18px;line-height:1.5">Yeh action undo nahi hoga.</p><div style="display:flex;gap:8px"><button class="btn btn-danger" style="flex:1;justify-content:center" onclick="confirmDelete()">Delete Karo</button><button class="btn btn-ghost" onclick="state.deleteConfirm=false;render()">Cancel</button></div></div></div>':'';
-  return '<div class="page-header"><div class="page-title">Staff Members</div><div class="page-sub">'+state.staff.length+' members</div></div><div style="margin-bottom:14px"><button class="btn btn-primary" onclick="state.staffShowForm=true;render()">＋ Staff Add Karo</button></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Role</th><th>Salary</th><th></th></tr></thead><tbody>'+(state.staff.length===0?'<tr><td colspan="5"><div class="empty"><div class="empty-icon">👥</div>Pehla member add karo!</div></td></tr>':state.staff.map(function(s){return '<tr><td class="name-cell">'+s.name+'</td><td style="color:var(--muted)">'+(s.phone||'—')+'</td><td><span class="role-badge">'+(s.role||'—')+'</span></td><td class="amount-positive">₹'+s.baseMonthlySalary.toLocaleString()+'</td><td><div style="display:flex;gap:5px"><button class="btn btn-ghost btn-sm" onclick="openEdit(\''+s.staffId+'\')">✏️</button><button class="btn btn-danger btn-sm" onclick="state.deleteConfirm=true;state.deleteStaffId=\''+s.staffId+'\';render()">🗑️</button></div></td></tr>';}).join(''))+'</tbody></table></div>'+am+em+dm;
+  return '<div class="page-header"><div class="page-title">Staff Members</div><div class="page-sub">'+state.staff.length+' members</div></div><div style="margin-bottom:14px"><button class="btn btn-primary" onclick="state.staffShowForm=true;render()">＋ Staff Add Karo</button></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Role</th><th>Salary</th><th>Actions</th></tr></thead><tbody>'+(state.staff.length===0?'<tr><td colspan="5"><div class="empty"><div class="empty-icon">👥</div>Pehla member add karo!</div></td></tr>':state.staff.map(function(s){return '<tr><td class="name-cell">'+s.name+'</td><td style="color:var(--muted)">'+(s.phone||'—')+'</td><td><span class="role-badge">'+(s.role||'—')+'</span></td><td class="amount-positive">₹'+s.baseMonthlySalary.toLocaleString()+'</td><td><div style="display:flex;gap:5px"><button class="btn btn-ghost btn-sm" onclick="loadAttHistory(\''+s.staffId+'\')">📅</button><button class="btn btn-ghost btn-sm" onclick="openEdit(\''+s.staffId+'\')">✏️</button><button class="btn btn-danger btn-sm" onclick="state.deleteConfirm=true;state.deleteStaffId=\''+s.staffId+'\';render()">🗑️</button></div></td></tr>';}).join(''))+'</tbody></table></div>'+am+em+dm+attModal;
 }
+
 function buildStaffModal(mode){
   var f=mode==='add'?state.staffForm:state.editForm;
   var saving=mode==='add'?state.staffSaving:state.editSaving;
   return '<div class="modal-overlay" onclick="if(event.target===this){state.'+(mode==='add'?'staffShowForm':'editShowForm')+'=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">'+(mode==='add'?'👤 Staff Add':'✏️ Staff Edit')+'</div><div class="form-group"><label class="form-label">Full Name *</label><input class="form-input" id="sf-name" placeholder="e.g. Rahul Sharma" value="'+f.name+'"/></div><div class="form-grid"><div class="form-group"><label class="form-label">Phone</label><input class="form-input" id="sf-phone" placeholder="10-digit" value="'+f.phone+'" type="tel"/></div><div class="form-group"><label class="form-label">Role</label><input class="form-input" id="sf-role" placeholder="e.g. Cashier" value="'+f.role+'"/></div></div><div class="form-group"><label class="form-label">Monthly Salary (₹) *</label><input type="number" class="form-input" id="sf-sal" placeholder="e.g. 15000" value="'+f.baseMonthlySalary+'"/></div><div style="display:flex;gap:8px;margin-top:2px"><button class="btn btn-primary" style="flex:1;justify-content:center" onclick="'+(mode==='add'?'collectStaff()':'collectEdit()')+'" '+(saving?'disabled':'')+'>'+( saving?'Saving...':(mode==='add'?'Add Member':'Save Changes'))+'</button><button class="btn btn-ghost" onclick="state.'+(mode==='add'?'staffShowForm':'editShowForm')+'=false;render()">Cancel</button></div></div></div>';
 }
+
 function buildLedgerModal(){
   var sn=(state.staff.find(function(s){return s.staffId===state.ledgerStaffId;})||{}).name||'';
   var bal=0;state.ledger.forEach(function(l){if(l.type==='Opening'||l.type==='Given')bal+=l.amount;if(l.type==='Deducted')bal-=l.amount;});bal=Math.max(0,bal);
   var rows=state.ledger.length===0?'<tr><td colspan="4"><div class="empty">Koi record nahi</div></td></tr>':state.ledger.map(function(l){var cls=l.type==='Given'?'amount-negative':l.type==='Deducted'?'amount-positive':'amount-warning';return '<tr><td style="color:var(--muted)">'+l.date+'</td><td><span class="badge badge-'+l.type.toLowerCase()+'">'+l.type+'</span></td><td class="'+cls+'">'+(l.type==='Deducted'?'−':'+')+'₹'+l.amount.toLocaleString()+'</td><td style="color:var(--muted);font-size:10px">'+(l.notes||'—')+'</td></tr>';}).join('');
   return '<div class="modal-overlay" onclick="if(event.target===this){state.showLedger=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">📒 '+sn+'</div><div class="info-card">💳 Outstanding: <strong>₹'+bal.toLocaleString()+'</strong></div>'+(state.ledgerLoading?'<div class="loading"><div class="spinner"></div></div>':'<div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Notes</th></tr></thead><tbody>'+rows+'</tbody></table></div>')+'<div style="margin-top:14px"><button class="btn btn-ghost" onclick="state.showLedger=false;render()">Close</button></div></div></div>';
+}
+
+function buildAttHistoryModal(){
+  var sn=(state.staff.find(function(s){return s.staffId===state.attHistoryStaffId;})||{}).name||'';
+  var rows=state.attHistory.length===0?'<tr><td colspan="2"><div class="empty">Koi attendance record nahi</div></td></tr>':
+    state.attHistory.map(function(a){
+      var cls=a.status==='Present'?'amount-positive':(a.status==='Absent'?'amount-negative':'amount-warning');
+      return '<tr><td style="color:var(--muted)">'+a.date+'</td><td class="'+cls+'" style="font-weight:700">'+a.status+'</td></tr>';
+    }).join('');
+  return '<div class="modal-overlay" onclick="if(event.target===this){state.showAttHistory=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">📅 '+sn+' - Attendance</div>'+(state.attHistoryLoading?'<div class="loading"><div class="spinner"></div></div>':'<div class="table-wrap"><table><thead><tr><th>Date</th><th>Status</th></tr></thead><tbody>'+rows+'</tbody></table></div>')+'<div style="margin-top:14px"><button class="btn btn-ghost" onclick="state.showAttHistory=false;render()">Close</button></div></div></div>';
 }
 
 function openEdit(sid){var s=state.staff.find(function(x){return x.staffId===sid;});if(!s)return;state.editForm={staffId:s.staffId,name:s.name,phone:s.phone||'',role:s.role||'',baseMonthlySalary:s.baseMonthlySalary};state.editShowForm=true;render();}
