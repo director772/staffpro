@@ -14,18 +14,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-:root{
-  --bg:#0a0a0f;--surface:#13131a;--card:#1a1a24;--card2:#1f1f2e;--border:#2a2a3a;--border2:#333348;
-  --accent:#f0c93a;--accent-dark:#c9a520;--accent2:#3af0a0;--accent3:#f03a6e;
-  --blue:#3aa0f0;--purple:#a03af0;
-  --text:#f0f0f8;--text2:#c8c8e0;--muted:#6b6b8a;
-  --present:#3af0a0;--absent:#f03a6e;--halfday:#f0c93a;
-  --shadow:0 4px 24px rgba(0,0,0,0.4);--shadow-lg:0 8px 40px rgba(0,0,0,0.6);
-}
+:root{--bg:#0a0a0f;--surface:#13131a;--card:#1a1a24;--card2:#1f1f2e;--border:#2a2a3a;--border2:#333348;--accent:#f0c93a;--accent-dark:#c9a520;--accent2:#3af0a0;--accent3:#f03a6e;--blue:#3aa0f0;--purple:#a03af0;--text:#f0f0f8;--text2:#c8c8e0;--muted:#6b6b8a;--present:#3af0a0;--absent:#f03a6e;--halfday:#f0c93a;--shadow:0 4px 24px rgba(0,0,0,0.4);--shadow-lg:0 8px 40px rgba(0,0,0,0.6);}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:3px;height:3px}
-::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+::-webkit-scrollbar{width:3px;height:3px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 .splash{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.5s ease}
 .splash.hide{opacity:0;pointer-events:none}
 .splash-logo{animation:splashPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both}
@@ -33,12 +24,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 .splash-sub{font-size:12px;color:var(--muted);margin-top:5px;text-transform:uppercase;letter-spacing:1px;animation:fadeUp 0.5s 0.5s both}
 .splash-bar{width:100px;height:2px;background:var(--border);border-radius:2px;margin-top:28px;overflow:hidden;animation:fadeUp 0.5s 0.6s both}
 .splash-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;animation:loadBar 1.5s 0.7s ease both}
-@keyframes splashPop{from{opacity:0}to{opacity:1}}
-@keyframes fadeUp{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}
-@keyframes loadBar{from{width:0}to{width:100%}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes toastIn{from{transform:translateX(-50%) translateY(20px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+@keyframes splashPop{from{opacity:0}to{opacity:1}}@keyframes fadeUp{from{transform:translateY(14px);opacity:0}to{transform:translateY(0);opacity:1}}@keyframes loadBar{from{width:0}to{width:100%}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes toastIn{from{transform:translateX(-50%) translateY(20px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at 50% 0%,rgba(240,201,58,0.07) 0%,transparent 60%)}
 .login-box{background:var(--card);border:1px solid var(--border2);border-radius:22px;padding:36px 32px;width:100%;max-width:390px;box-shadow:var(--shadow-lg);animation:fadeUp 0.5s both}
 .login-logo-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:28px}
@@ -92,6 +78,8 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 .badge-opening{background:rgba(160,58,240,0.12);color:var(--purple)}
 .badge-given{background:rgba(240,201,58,0.12);color:var(--halfday)}
 .badge-deducted{background:rgba(58,240,160,0.12);color:var(--present)}
+.badge-refunded{background:rgba(58,160,240,0.12);color:var(--blue)}
+.badge-penalty{background:rgba(240,58,110,0.12);color:var(--absent)}
 .btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:10px;border:none;cursor:pointer;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;transition:all 0.18s;white-space:nowrap}
 .btn:active{transform:scale(0.96)}
 .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:#000;box-shadow:0 2px 12px rgba(240,201,58,0.25)}
@@ -127,7 +115,7 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 .amount-warning{color:#f0a03a;font-weight:700}
 .net-pay{font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:var(--accent2)}
 .outstanding-pill{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:10px;font-weight:700;background:rgba(240,58,110,0.12);color:var(--absent)}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:11px 18px;font-size:12px;font-weight:600;z-index:9999;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);white-space:nowrap;animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:11px 18px;font-size:12px;font-weight:600;z-index:9999;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow-lg);animation:toastIn 0.3s cubic-bezier(0.34,1.56,0.64,1);white-space:nowrap}
 .toast.success{border-color:rgba(58,240,160,0.35);color:var(--present)}
 .toast.error{border-color:rgba(240,58,110,0.35);color:var(--absent)}
 .loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px;color:var(--muted);gap:14px;font-size:13px}
@@ -202,7 +190,6 @@ html, body { overscroll-behavior-y: none; }
 </style>
 </head>
 <body>
-
 <div class="splash" id="splash">
   <div class="splash-logo">
     <svg width="80" height="80" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +224,6 @@ document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
 document.addEventListener('touchstart', function(e) { if(e.touches.length > 1) e.preventDefault(); }, {passive: false});
 var lastTouchEnd = 0;
 document.addEventListener('touchend', function(e) { var now = (new Date()).getTime(); if(now - lastTouchEnd <= 300) e.preventDefault(); lastTouchEnd = now; }, {passive: false});
-
 setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.add('hide');setTimeout(function(){s.remove();},600);}},2000);
 
 var LOGO='<svg width="34" height="34" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="l1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1a1a2e"/><stop offset="100%" style="stop-color:#0a0a0f"/></linearGradient><linearGradient id="l2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f0c93a"/><stop offset="100%" style="stop-color:#e6a817"/></linearGradient><linearGradient id="l3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3af0a0"/><stop offset="100%" style="stop-color:#20d080"/></linearGradient></defs><rect width="512" height="512" rx="100" fill="url(#l1)"/><circle cx="160" cy="185" r="38" fill="url(#l2)" opacity=".9"/><ellipse cx="160" cy="290" rx="55" ry="35" fill="url(#l2)" opacity=".7"/><circle cx="256" cy="170" r="48" fill="url(#l2)"/><ellipse cx="256" cy="285" rx="68" ry="42" fill="url(#l2)" opacity=".9"/><circle cx="352" cy="185" r="38" fill="url(#l2)" opacity=".9"/><ellipse cx="352" cy="290" rx="55" ry="35" fill="url(#l2)" opacity=".7"/><circle cx="370" cy="370" r="70" fill="url(#l3)"/><polyline points="335,370 358,393 408,343" fill="none" stroke="#0a0a0f" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -254,10 +240,11 @@ var state={
   payShowForm:false,payForm:{staffId:'',date:today(),amount:'',notes:''},paySaving:false,
   staffShowForm:false,staffForm:{name:'',phone:'',role:'',baseMonthlySalary:''},staffSaving:false,
   editShowForm:false,editForm:{staffId:'',name:'',phone:'',role:'',baseMonthlySalary:''},editSaving:false,
+  adjShowForm:false,adjForm:{staffId:'',date:today(),type:'Refunded',amount:'',notes:''},adjSaving:false,
   deleteConfirm:false,deleteStaffId:'',
   showLedger:false,ledger:[],ledgerLoading:false,ledgerStaffId:'',
   showPayHistory:false,payHistory:[],payHistoryLoading:false,payHistoryStaffId:'',
-  showAttHistory:false,attHistory:[],attHistoryLoading:false,attHistoryStaffId:'', 
+  showAttHistory:false,attHistory:[],attHistoryLoading:false,attHistoryStaffId:'',
   charts:{}
 };
 
@@ -265,7 +252,6 @@ function today(){return new Date().toISOString().slice(0,10);}
 function thisMonth(){return new Date().toISOString().slice(0,7);}
 
 var API_URL = "https://script.google.com/macros/s/AKfycbwFWk1_PCH1YJPRGqULvjIOOz051nDO6whNT4Lsui-Ncyo6WAA1AM6aMclxUJf7CzQq/exec";
-
 
 function gsGet(action, params) {
   return new Promise(function(resolve, reject) {
@@ -382,6 +368,14 @@ function saveDeduction(){
     showToast('Deduction save!','success');loadMonthly();
   }).catch(function(e){state.deductSaving=false;showToast(e.message,'error');render();});
 }
+function saveAdjustment(){
+  var f=state.adjForm;if(!f.staffId||!f.amount){showToast('Staff aur amount zaroori','error');return;}
+  state.adjSaving=true;render();
+  gsPost({action:'adjustAdvance',staffId:f.staffId,date:f.date,type:f.type,amount:Number(f.amount),notes:f.notes}).then(function(){
+    state.adjSaving=false;state.adjShowForm=false;state.adjForm={staffId:'',date:today(),type:'Refunded',amount:'',notes:''};
+    showToast('Adjustment saved!','success');loadMonthly();
+  }).catch(function(e){state.adjSaving=false;showToast(e.message,'error');render();});
+}
 function saveOpening(){
   var f=state.openingForm;if(!f.staffId||!f.amount){showToast('Staff aur amount zaroori','error');return;}
   state.openingSaving=true;render();
@@ -495,9 +489,15 @@ function buildDeductModal(){
 function buildAdvance(){
   var opts=state.staff.map(function(s){return '<option value="'+s.staffId+'">'+s.name+'</option>';}).join('');
   var am=state.advShowForm?'<div class="modal-overlay" onclick="if(event.target===this){state.advShowForm=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">💸 Naya Advance</div><div class="form-group"><label class="form-label">Staff</label><select class="form-select" id="adv-staff"><option value="">Select...</option>'+opts+'</select></div><div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input" id="adv-date" value="'+state.advForm.date+'"/></div><div class="form-group"><label class="form-label">Amount (₹)</label><input type="number" class="form-input" id="adv-amount" placeholder="e.g. 2000"/></div><div class="form-group"><label class="form-label">Notes</label><input class="form-input" id="adv-notes" value="'+state.advForm.notes+'"/></div><div style="display:flex;gap:8px"><button class="btn btn-primary" style="flex:1;justify-content:center" onclick="collectAdv()" '+(state.advSaving?'disabled':'')+'>'+( state.advSaving?'Saving...':'Save')+'</button><button class="btn btn-ghost" onclick="state.advShowForm=false;render()">Cancel</button></div></div></div>':'';
+  var adjm=state.adjShowForm?buildAdjModal():'';
   var om=state.openingShowForm&&isOwner()?'<div class="modal-overlay" onclick="if(event.target===this){state.openingShowForm=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">📂 Opening Balance</div><div class="info-card">ℹ️ Pehle se jo advance baaki hai</div><div class="form-group"><label class="form-label">Staff</label><select class="form-select" id="op-staff"><option value="">Select...</option>'+opts+'</select></div><div class="form-group"><label class="form-label">Amount (₹)</label><input type="number" class="form-input" id="op-amount" placeholder="e.g. 15000"/></div><div class="form-group"><label class="form-label">Notes</label><input class="form-input" id="op-notes" placeholder="Purana advance" value="'+state.openingForm.notes+'"/></div><div style="display:flex;gap:8px"><button class="btn btn-primary" style="flex:1;justify-content:center" onclick="collectOpening()" '+(state.openingSaving?'disabled':'')+'>'+( state.openingSaving?'Saving...':'Set Balance')+'</button><button class="btn btn-ghost" onclick="state.openingShowForm=false;render()">Cancel</button></div></div></div>':'';
   var lm=state.showLedger?buildLedgerModal():'';
-  return '<div class="page-header"><div class="page-title">Advance Management</div><div class="page-sub">Outstanding balance aur ledger</div></div><div class="date-bar"><button class="btn btn-primary" onclick="state.advShowForm=true;render()">＋ Naya Advance</button>'+(isOwner()?'<button class="btn btn-purple" onclick="state.openingShowForm=true;render()">📂 Opening</button>':'')+'</div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Role</th><th>Outstanding</th><th>Ledger</th></tr></thead><tbody>'+(state.staff.length===0?'<tr><td colspan="4"><div class="empty"><div class="empty-icon">💸</div>Koi staff nahi</div></td></tr>':state.staff.map(function(s){return '<tr><td class="name-cell">'+s.name+'</td><td><span class="role-badge">'+(s.role||'—')+'</span></td><td>'+(s.outstanding>0?'<span class="outstanding-pill">₹'+s.outstanding.toLocaleString()+'</span>':'<span style="color:var(--muted)">—</span>')+'</td><td><button class="btn btn-ghost btn-sm" onclick="loadLedger(\''+s.staffId+'\')">📒 View</button></td></tr>';}).join(''))+'</tbody></table></div>'+am+om+lm;
+  return '<div class="page-header"><div class="page-title">Advance Management</div><div class="page-sub">Outstanding balance aur ledger</div></div><div class="date-bar"><button class="btn btn-primary" onclick="state.advShowForm=true;render()">＋ Naya Advance</button><button class="btn btn-blue" onclick="state.adjShowForm=true;render()">± Adjust</button>'+(isOwner()?'<button class="btn btn-purple" onclick="state.openingShowForm=true;render()">📂 Opening</button>':'')+'</div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Role</th><th>Outstanding</th><th>Ledger</th></tr></thead><tbody>'+(state.staff.length===0?'<tr><td colspan="4"><div class="empty"><div class="empty-icon">💸</div>Koi staff nahi</div></td></tr>':state.staff.map(function(s){return '<tr><td class="name-cell">'+s.name+'</td><td><span class="role-badge">'+(s.role||'—')+'</span></td><td>'+(s.outstanding>0?'<span class="outstanding-pill">₹'+s.outstanding.toLocaleString()+'</span>':'<span style="color:var(--muted)">—</span>')+'</td><td><button class="btn btn-ghost btn-sm" onclick="loadLedger(\''+s.staffId+'\')">📒 View</button></td></tr>';}).join(''))+'</tbody></table></div>'+am+adjm+om+lm;
+}
+
+function buildAdjModal(){
+  var opts=state.staff.map(function(s){return '<option value="'+s.staffId+'">'+s.name+'</option>';}).join('');
+  return '<div class="modal-overlay" onclick="if(event.target===this){state.adjShowForm=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">± Adjust Advance</div><div class="form-group"><label class="form-label">Staff</label><select class="form-select" id="adj-staff"><option value="">Select...</option>'+opts+'</select></div><div class="form-group"><label class="form-label">Adjustment Type</label><select class="form-select" id="adj-type"><option value="Refunded">➖ Advance Kam Karo (Cash Refund)</option><option value="Penalty">➕ Advance Badhao (Penalty/Fine)</option></select></div><div class="form-group"><label class="form-label">Date</label><input type="date" class="form-input" id="adj-date" value="'+state.adjForm.date+'"/></div><div class="form-group"><label class="form-label">Amount (₹)</label><input type="number" class="form-input" id="adj-amount" placeholder="Kitna adjust karna hai"/></div><div class="form-group"><label class="form-label">Notes</label><input class="form-input" id="adj-notes" placeholder="Reason likhein" value="'+state.adjForm.notes+'"/></div><div style="display:flex;gap:8px"><button class="btn btn-primary" style="flex:1;justify-content:center" onclick="collectAdj()" '+(state.adjSaving?'disabled':'')+'>'+(state.adjSaving?'Saving...':'Save Adjustment')+'</button><button class="btn btn-ghost" onclick="state.adjShowForm=false;render()">Cancel</button></div></div></div>';
 }
 
 function buildPayment(){
@@ -537,8 +537,12 @@ function buildStaffModal(mode){
 
 function buildLedgerModal(){
   var sn=(state.staff.find(function(s){return s.staffId===state.ledgerStaffId;})||{}).name||'';
-  var bal=0;state.ledger.forEach(function(l){if(l.type==='Opening'||l.type==='Given')bal+=l.amount;if(l.type==='Deducted')bal-=l.amount;});bal=Math.max(0,bal);
-  var rows=state.ledger.length===0?'<tr><td colspan="4"><div class="empty">Koi record nahi</div></td></tr>':state.ledger.map(function(l){var cls=l.type==='Given'?'amount-negative':l.type==='Deducted'?'amount-positive':'amount-warning';return '<tr><td style="color:var(--muted)">'+l.date+'</td><td><span class="badge badge-'+l.type.toLowerCase()+'">'+l.type+'</span></td><td class="'+cls+'">'+(l.type==='Deducted'?'−':'+')+'₹'+l.amount.toLocaleString()+'</td><td style="color:var(--muted);font-size:10px">'+(l.notes||'—')+'</td></tr>';}).join('');
+  var bal=0;state.ledger.forEach(function(l){if(['Opening','Given','Penalty'].includes(l.type))bal+=l.amount;if(['Deducted','Refunded'].includes(l.type))bal-=l.amount;});bal=Math.max(0,bal);
+  var rows=state.ledger.length===0?'<tr><td colspan="4"><div class="empty">Koi record nahi</div></td></tr>':state.ledger.map(function(l){
+    var cls=(l.type==='Given'||l.type==='Penalty')?'amount-negative':(l.type==='Deducted'||l.type==='Refunded')?'amount-positive':'amount-warning';
+    var sign=(l.type==='Deducted'||l.type==='Refunded')?'−':'+';
+    return '<tr><td style="color:var(--muted)">'+l.date+'</td><td><span class="badge badge-'+l.type.toLowerCase().replace(/[^a-z]/g,'')+'">'+l.type+'</span></td><td class="'+cls+'">'+sign+'₹'+l.amount.toLocaleString()+'</td><td style="color:var(--muted);font-size:10px">'+(l.notes||'—')+'</td></tr>';
+  }).join('');
   return '<div class="modal-overlay" onclick="if(event.target===this){state.showLedger=false;render()}"><div class="modal"><span class="modal-handle"></span><div class="modal-title">📒 '+sn+'</div><div class="info-card">💳 Outstanding: <strong>₹'+bal.toLocaleString()+'</strong></div>'+(state.ledgerLoading?'<div class="loading"><div class="spinner"></div></div>':'<div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Amount</th><th>Notes</th></tr></thead><tbody>'+rows+'</tbody></table></div>')+'<div style="margin-top:14px"><button class="btn btn-ghost" onclick="state.showLedger=false;render()">Close</button></div></div></div>';
 }
 
@@ -556,6 +560,7 @@ function openEdit(sid){var s=state.staff.find(function(x){return x.staffId===sid
 
 function collectAdv(){state.advForm.staffId=document.getElementById('adv-staff').value;state.advForm.date=document.getElementById('adv-date').value;state.advForm.amount=document.getElementById('adv-amount').value;state.advForm.notes=document.getElementById('adv-notes').value;saveAdvance();}
 function collectDeduct(){state.deductForm.staffId=document.getElementById('dd-staff').value;state.deductForm.date=document.getElementById('dd-date').value;state.deductForm.amount=document.getElementById('dd-amount').value;state.deductForm.notes=document.getElementById('dd-notes').value;saveDeduction();}
+function collectAdj(){state.adjForm.staffId=document.getElementById('adj-staff').value;state.adjForm.type=document.getElementById('adj-type').value;state.adjForm.date=document.getElementById('adj-date').value;state.adjForm.amount=document.getElementById('adj-amount').value;state.adjForm.notes=document.getElementById('adj-notes').value;saveAdjustment();}
 function collectOpening(){state.openingForm.staffId=document.getElementById('op-staff').value;state.openingForm.amount=document.getElementById('op-amount').value;state.openingForm.notes=document.getElementById('op-notes').value;saveOpening();}
 function collectPay(){state.payForm.staffId=document.getElementById('pay-staff').value;state.payForm.date=document.getElementById('pay-date').value;state.payForm.amount=document.getElementById('pay-amount').value;state.payForm.notes=document.getElementById('pay-notes').value;savePayment();}
 function collectStaff(){state.staffForm.name=document.getElementById('sf-name').value;state.staffForm.phone=document.getElementById('sf-phone').value;state.staffForm.role=document.getElementById('sf-role').value;state.staffForm.baseMonthlySalary=document.getElementById('sf-sal').value;saveStaff();}
